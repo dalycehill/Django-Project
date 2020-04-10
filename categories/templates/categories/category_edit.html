@@ -1,0 +1,27 @@
+{% extends 'base_layout.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <br/>
+    <div class="row">
+        <div class="col-md-10 col-md-offset-2">
+            <h1>Edit Category</h1>
+        </div>
+        <div class="col-md-10 col-md-offset-2">
+            <hr />
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-md-10 col-md-offset-2">
+            <form class="site-form" action="{% url 'categories:edit' id=category.id %}" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    {% csrf_token %}
+                    {{ form|crispy }}
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}
