@@ -1,0 +1,38 @@
+{% extends 'base_layout.html'%}
+
+{% block content %}
+    <br/>
+    <div class="row">
+		<div class="col-md-8 col-md-offset-2">
+			<h1>Item List</h1>
+		</div>
+		<div class="col-md-2">
+			<a href="{% url 'items:create' %}" class="btn btn-primary">New Item</a>
+		</div>
+	</div>
+    
+    <br/>
+    <div class="row">
+		<div class="col-md-10 col-md-offset-2">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in items %}
+                        <tr>
+                            <td>{{item.title}}</td>
+                            <td>
+                                <a href="{% url 'items:edit' id=item.id %}" class="btn btn-primary btn-sm">Edit</a>
+                                <a href="{% url 'items:delete' id=item.id %}" class="btn btn-danger btn-sm">Delete</a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}
