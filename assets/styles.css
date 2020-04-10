@@ -1,0 +1,13 @@
+li button {
+    color: grey;
+    border: none;
+    background-color: #f8f9fa;
+}
+
+div img {
+    max-width: 50%;
+}
+
+td {
+    width: 300px;
+}
