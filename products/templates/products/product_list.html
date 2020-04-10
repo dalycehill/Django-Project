@@ -1,0 +1,40 @@
+{% extends 'base_layout.html'%}
+
+{% block content %}
+    <br/>
+    <div class="row">
+        <div class="col-md-10 col-md-offset-2">
+            <h1>Products List</h1>
+        </div>
+    </div>
+
+    <br/>
+    <div class="row">
+        <div class="col-md-10 col-md-offset-2">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Image</th>
+                        <th>Category #</th>
+                        <th>Title</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Sku</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for product in products %}
+                        <tr>
+                            <td><img src="{{ product.picture.url }}" class="img_fluid"/></td>
+                            <td>{{product.category}}</td>
+                            <td>{{product.title}}</td>
+                            <td>{{product.price}}</td>
+                            <td>{{product.quantity}}</td>
+                            <td>{{product.sku}}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}
